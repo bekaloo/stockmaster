@@ -5,6 +5,7 @@ const initialState = {
     stocks: [],
     loading: false,
     selectedStock: '',
+    searchTerm: '',
     error: ''
 };
 export const fetchStocks = createAsyncThunk('stocks/fetchStocks', () => (
@@ -25,7 +26,8 @@ export const stockSlice = createSlice({
     name: 'stocks',
     initialState,
     reducers: {
-        select: (state, action) => ({...state, selectedStock: action.payload})
+        select: (state, action) => ({...state, selectedStock: action.payload}),
+        search: (state, action) => ({...state, searchTerm: action.payload})
     },
     extraReducers: (builder) => {
         builder.addCase(fetchStocks.pending, (state) => ({ ...state, loading: true }));
@@ -35,5 +37,5 @@ export const stockSlice = createSlice({
     }
 });
 
-export const {select} = stockSlice.actions;
+export const {select, search} = stockSlice.actions;
 export default stockSlice.reducer;
