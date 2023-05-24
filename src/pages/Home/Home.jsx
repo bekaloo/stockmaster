@@ -23,7 +23,7 @@ const Home = () => {
                     <h1>Stocks</h1>
                     <div className="searchbar">
                         <input type="text" />
-                        <button><FontAwesomeIcon icon={faSearch} /></button>
+                        <button className="searchbtn"><FontAwesomeIcon icon={faSearch} /></button>
                     </div>
 
                 </nav>
